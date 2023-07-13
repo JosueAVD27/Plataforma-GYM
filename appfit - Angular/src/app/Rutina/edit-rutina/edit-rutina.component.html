@@ -1,0 +1,171 @@
+<div>
+    <div class="title_vista">
+        <h3>ACTUALIZAR RUTINA</h3>
+    </div>
+    <div class="contenedor_interno">
+        <form class="formulario" (ngSubmit)="save($event)" [formGroup]="form">
+            <div>
+                <div class="campo-formulario">
+                    <label for="nombre_rutina">Rutina</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="nombre_rutina" name="nombre_rutina" id="nombre_rutina"
+                            [(ngModel)]="modeloRutina.nombre_rutina">
+                        <span class="material-icons">published_with_changes</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('nombre_rutina')?.hasError('required') && form.get('nombre_rutina')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="duracion_rutina">Duración</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="duracion_rutina" name="duracion_rutina" id="duracion_rutina"
+                            [(ngModel)]="modeloRutina.duracion_rutina">
+                        <span class="material-icons">update</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('duracion_rutina')?.hasError('required') && form.get('duracion_rutina')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="descripcion_rutina">Descripción</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="descripcion_rutina" name="descripcion_rutina"
+                            id="descripcion_rutina" [(ngModel)]="modeloRutina.descripcion_rutina">
+                        <span class="material-icons">description</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('descripcion_rutina')?.hasError('required') && form.get('descripcion_rutina')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="campo-formulario">
+                    <label for="dias_rutina">Días</label>
+                    <div class="input-icono">
+                        <input class="disable_input" type="text" formControlName="dias_rutina" name="dias_rutina"
+                            id="dias_rutina" [(ngModel)]="modeloRutina.dias_rutina" readonly>
+                        <span class="material-icons">calendar_month</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('dias_rutina')?.hasError('required') && form.get('dias_rutina')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="material_rutina">Materiales</label>
+                    <div class="input-icono">
+                        <input class="disable_input" type="text" formControlName="material_rutina"
+                            name="material_rutina" id="material_rutina" [(ngModel)]="modeloRutina.material_rutina"
+                            readonly>
+                        <span class="material-icons">fitness_center</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('material_rutina')?.hasError('required') && form.get('material_rutina')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="campo-formulario">
+                    <div class="dias-semana">
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Lunes" (change)="onDiaSeleccionado($event)">
+                            Lunes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Martes" (change)="onDiaSeleccionado($event)">
+                            Martes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Miércoles" (change)="onDiaSeleccionado($event)">
+                            Miércoles
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Jueves" (change)="onDiaSeleccionado($event)">
+                            Jueves
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Viernes" (change)="onDiaSeleccionado($event)">
+                            Viernes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Sábado" (change)="onDiaSeleccionado($event)">
+                            Sábado
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dias[]" value="Domingo" (change)="onDiaSeleccionado($event)">
+                            Domingo
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-formulario">
+                    <div class="materiales_rutina">
+                        <label>
+                            <input type="checkbox" name="material[]" value="Pesas"
+                                (change)="onMaterialSeleccionado($event)">
+                            Pesas
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Banco"
+                                (change)="onMaterialSeleccionado($event)">
+                            Banco
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Barra"
+                                (change)="onMaterialSeleccionado($event)">
+                            Barra
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Mancuernas"
+                                (change)="onMaterialSeleccionado($event)">
+                            Mancuernas
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Bicicleta"
+                                (change)="onMaterialSeleccionado($event)">
+                            Bicicleta
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Cuerda"
+                                (change)="onMaterialSeleccionado($event)">
+                            Cuerda
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Colchoneta"
+                                (change)="onMaterialSeleccionado($event)">
+                            Colchoneta
+                        </label>
+                        <label>
+                            <input type="checkbox" name="material[]" value="Banda elástica"
+                                (change)="onMaterialSeleccionado($event)">
+                            Banda elástica
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button [disabled]="!form.valid" class="btn button-actualizar">Actualizar</button>
+                <button class="btn button-cancelar" (click)="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

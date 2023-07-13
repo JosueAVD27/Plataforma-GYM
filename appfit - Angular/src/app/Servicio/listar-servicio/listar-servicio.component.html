@@ -1,0 +1,61 @@
+<div>
+    <div class="title_vista">
+        <h3>SERVICIOS</h3>
+    </div>
+    <div class="contenedor_interno">
+
+        <app-add-servicio (servicioAgregado)="actualizarTabla()"></app-add-servicio>
+
+        <div class="sub_title">
+            <h2>Lista de servicios</h2>
+        </div>
+
+        <div class="contenedor-busqueda">
+            <div class="input-icono">
+                <input type="text" [(ngModel)]="filtro" (input)="filtrarServicios()"
+                placeholder="Buscar por servicio, precio o promoción">
+                <span class="material-icons">person_search</span>
+            </div>
+        </div>
+
+        <table class="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>SERVICIO</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>PRECIO/USD</th>
+                    <th>DURACIÓN</th>
+                    <th>PROMOCIÓN</th>
+                    <th>OBSERVACIONES</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let servicio of serviciosPaginados; let i = index">
+                    <td>{{ inicioConteo + i + 1 }}</td>
+                    <td>{{ servicio.nombre_servicio }}</td>
+                    <td>{{ servicio.descripcion_servicio }}</td>
+                    <td>{{ servicio.precio_servicio }}</td>
+                    <td>{{ servicio.duracion_servicio }}</td>
+                    <td>{{ servicio.promocion_servicio }}</td>
+                    <td>{{ servicio.observaciones_servicio }}</td>
+                    <td class="botones">
+                        <button class="btn button-editar" (click)="editar(servicio)">Editar</button>
+                        <button class="btn button-eliminar" (click)="delete(servicio)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="paginacion">
+            <button [disabled]="paginaActual === 1" (click)="paginaAnterior()">Anterior</button>
+            <button
+                [disabled]="serviciosFiltrados.length <= registrosPorPagina || (paginaActual * registrosPorPagina) >= serviciosFiltrados.length"
+                (click)="paginaSiguiente()">Siguiente</button>
+        </div>
+
+        <p>Total de servicios: {{ serviciosFiltrados.length }}</p>
+
+    </div>
+</div>

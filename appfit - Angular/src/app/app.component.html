@@ -1,0 +1,84 @@
+<!-- Navbar -->
+<nav id="navbar">
+    <ul class="navbar-items flexbox-col">
+        <li class="navbar-logo flexbox-left">
+            <a class="navbar-item-inner flexbox">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 1438.88 1819.54">
+                    <polygon points="925.79 318.48 830.56 0 183.51 1384.12 510.41 1178.46 925.79 318.48" />
+                    <polygon
+                        points="1438.88 1663.28 1126.35 948.08 111.98 1586.26 0 1819.54 1020.91 1250.57 1123.78 1471.02 783.64 1663.28 1438.88 1663.28" />
+                </svg>
+                
+            </a>
+            <span class="link-text title_general">FIT - GYM</span>
+        </li>
+        <li class="navbar-item flexbox-left">
+            <a class="navbar-item-inner flexbox-left" [class.activeBtn]="isActiveBtn1" (click)="Inicio()">
+                <div class="navbar-item-inner-icon-wrapper flexbox">
+                    <span class="material-icons">home</span>
+                </div>
+                <span class="link-text">Inicio</span>
+            </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+            <a class="navbar-item-inner flexbox-left" [class.activeBtn]="isActiveBtn2" (click)="Cliente()">
+                <div class="navbar-item-inner-icon-wrapper flexbox">
+                    <span class="material-icons">person_add</span>
+                </div>
+                <span class="link-text">Clientes</span>
+            </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+            <a class="navbar-item-inner flexbox-left" [class.activeBtn]="isActiveBtn3" (click)="Servicio()">
+                <div class="navbar-item-inner-icon-wrapper flexbox">
+                    <span class="material-icons">price_check</span>
+                </div>
+                <span class="link-text">Servicios</span>
+            </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+            <a class="navbar-item-inner flexbox-left" [class.activeBtn]="isActiveBtn4" (click)="Rutina()">
+                <div class="navbar-item-inner-icon-wrapper flexbox">
+                    <span class="material-icons">fitness_center</span>
+                </div>
+                <span class="link-text">Rutinas</span>
+            </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+            <a class="navbar-item-inner flexbox-left" [class.activeBtn]="isActiveBtn5" (click)="Suplemento()">
+                <div class="navbar-item-inner-icon-wrapper flexbox">
+                    <span class="material-icons">blender</span>
+                </div>
+                <span class="link-text">Suplementos</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Main -->
+<main id="main" class="flexbox-col">
+    <section class="contenedor_vistas">
+        <section id="inicio" [class.hidden]="isHidden">
+            <div class="title_vista">
+                <h2>PROYECTO - APLICACIONES DISTRIBUIDAS</h2>
+            </div>
+
+            <div class="contenedor_interno">
+                <img src="../assets/img/logos/ESPE.png" alt="ESPE" width="50%">
+                <div class="integrantes">
+                    <div>
+                        <h2>Integrantes:</h2>
+                    </div>
+                    <div class="integrantes_text">
+                        <p>Josue Velasquez</p>
+                        <p>Daniela Gonzalez</p>
+                        <p>Bryan Noboa</p>
+                    </div>
+                </div>
+                <img src="../assets/img/logos/ITIN.png" alt="ITIN" width="20%">
+            </div>
+        </section>
+
+        <router-outlet></router-outlet>
+    </section>
+</main>

@@ -1,0 +1,125 @@
+.formulario>div {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.campo-formulario label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="date"],
+.campo-formulario input[type="number"],
+.campo-formulario select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.campo-formulario select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Estilos para la lista desplegable */
+.campo-formulario select option {
+    background-color: 10, 28%, 93%;
+    border: 2px solid 10, 28%, 93%;
+    color: #333333;
+    padding: 18px;
+}
+
+/* Estilos para la opción seleccionada */
+.campo-formulario select option:checked {
+    background-color: #5e5e5e;
+    color: #ffffff;
+}
+
+.campo-formulario button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+
+/*Estilos para el boton desactiavado*/
+button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/*Estilos para las validaciones*/
+/*p*/
+p {
+    display: grid;
+}
+
+/*Small*/
+small {
+    font-size: 10px;
+    color: red;
+}
+
+
+.campo-formulario {
+    position: relative;
+}
+
+.input-icono {
+    display: flex;
+    align-items: center;
+}
+
+.input-icono input {
+    padding-right: 36px;
+    /* Ajusta el valor según sea necesario para dejar espacio para el ícono */
+}
+
+.input-icono .material-icons {
+    position: absolute;
+    right: 8px;
+    /* Ajusta el valor según sea necesario para alinear el ícono */
+    color: #848484;
+    /* Ajusta el color del ícono según tus necesidades */
+    pointer-events: none;
+    /* Evita que el ícono interfiera con la interacción del campo de entrada */
+}
+
+.dias-semana,
+.materiales_rutina {
+    display: flex;
+    flex-wrap: wrap;
+    color: #323232;
+}
+
+.dias-semana label,
+.materiales_rutina label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.dias-semana input[type="checkbox"],
+.materiales_rutina input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.disable_input {
+    color: #3b6055;
+    cursor: not-allowed;
+}

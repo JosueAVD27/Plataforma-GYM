@@ -1,0 +1,181 @@
+<div class="container">
+    <h3>Nueva cotización</h3>
+
+    <form class="contenedor" (ngSubmit)="save($event)" [formGroup]="form">
+
+        <div class="contenedor_info">
+            <div class="targeta">
+                <hr class="hr">
+                <h1>Información Personal</h1>
+                <hr class="hr">
+                <div>
+                    <label for="nombres">Nombres: </label>
+                    <p>{{ modeloCliente.nombre }}</p>
+                </div>
+                <div>
+                    <label for="apellidos">Apellidos: </label>
+                    <p>{{ modeloCliente.apellido }}</p>
+                </div>
+                <div>
+                    <label for="cedula">Cédula: </label>
+                    <p>{{ modeloCliente.cedula }}</p>
+                </div>
+                <div>
+                    <label for="cedula">Teléfono: </label>
+                    <p>{{ modeloCliente.telefono }}</p>
+                </div>
+                <div>
+                    <div class="extra_campo">
+                        <label for="fecha_nacimiento">Fecha de nacimiento: </label>
+                        <p>{{ modeloCliente.fecha_nacimiento }}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="extra_campo">
+                        <label for="direccion">Dirección: </label>
+                        <p>{{ modeloCliente.direccion }}</p>
+                    </div>
+                </div>
+                <hr class="hr">
+                <div>
+                    <label for="servicio">Servicio: </label>
+                    <ng-container *ngIf="servicioSeleccionado; else mensajeAlternativo">
+                        <p>{{ servicioSeleccionado.precio_servicio }} $</p>
+                    </ng-container>
+                    <ng-template #mensajeAlternativo>
+                        <p>Sin monto</p>
+                    </ng-template>
+                </div>
+                <div>
+                    <label for="servicio">Suplemento: </label>
+                    <ng-container *ngIf="suplementoSeleccionado; else mensajeAlternativo">
+                        <p>{{ suplementoSeleccionado.precio_suplemento }} $</p>
+                    </ng-container>
+                    <ng-template #mensajeAlternativo>
+                        <p>Sin monto</p>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedor_interno">
+            <div class="formulario">
+
+                <input class="hidden" type="number" name="id_cliente" id="id_cliente" formControlName="id_cliente" [value]="modeloCliente.id" [(ngModel)]="modeloCotizacion.id_cliente">
+
+                <div>
+                    <div class="campo-formulario">
+                        <label for="nombre_servicio">Servicio (Selección)</label>
+                        <div class="input-icono">
+                            <select formControlName="nombre_servicio" [(ngModel)]=" modeloServicio.nombre_servicio"
+                                (change)="actualizarPrecioServicio()">
+                                <option *ngFor="let servicio of servicios" [value]="servicio.id">{{
+                                    servicio.nombre_servicio }}</option>
+                            </select>
+                            <span class="material-icons">room_service</span>
+                        </div>
+                        <p>
+                            <small
+                                *ngIf="form.get('nombre_servicio')?.hasError('required') && form.get('nombre_servicio')?.touched">
+                                El campo es obligatorio
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="nombre_suplemento">Suplemento (Selección)</label>
+                        <div class="input-icono">
+                            <select formControlName="nombre_suplemento" [(ngModel)]="modeloCotizacion.id_suplemento || modeloSuplemento.nombre_suplemento"
+                                (change)="actualizarPrecioSuplemento()">
+                                <option *ngFor="let suplemento of suplementos" [value]="suplemento.id">{{
+                                    suplemento.nombre_suplemento }}</option>
+                            </select>
+                            <span class="material-icons">storefront</span>
+                        </div>
+                        <p>
+                            <small
+                                *ngIf="form.get('nombre_suplemento')?.hasError('required') && form.get('nombre_suplemento')?.touched">
+                                El campo es obligatorio
+                            </small>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="campo-formulario">
+                        <label for="nombre_rutina">Rutina (Selección)</label>
+                        <div class="input-icono">
+                            <select formControlName="nombre_rutina" [(ngModel)]="modeloCotizacion.id_rutina"
+                                (change)="actualizarPrecioServicio()">
+                                <option *ngFor="let rutina of rutinas" [value]="rutina.id">{{
+                                    rutina.nombre_rutina }}</option>
+                            </select>
+                            <span class="material-icons">sports_gymnastics</span>
+                        </div>
+                        <p>
+                            <small
+                                *ngIf="form.get('nombre_rutina')?.hasError('required') && form.get('nombre_rutina')?.touched">
+                                El campo es obligatorio
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="total">Monto/USD</label>
+                        <div class="input-icono">
+                            <input type="number" formControlName="monto_cotizacion" [value]="montoTotal" [(ngModel)]="modeloCotizacion.monto_cotizacion" readonly>
+                            <span class="material-icons">request_quote</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="campo-formulario">
+                        <label for="estado_cotizacion">Estado</label>
+                        <div class="input-icono">
+                            <select formControlName="estado_cotizacion"
+                                [(ngModel)]="modeloCotizacion.estado_cotizacion">
+                                <option value="Pagado">Pagado</option>
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="Sin pago">Sin pago</option>
+                            </select>
+                            <span class="material-icons">edit_attributes</span>
+                        </div>
+                        <p>
+                            <small
+                                *ngIf="form.get('estado_cotizacion')?.hasError('required') && form.get('estado_cotizacion')?.touched">
+                                El campo es obligatorio
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="observacion_cotizacion">Observación</label>
+                        <div class="input-icono">
+                            <input formControlName="observacion_cotizacion" type="text" name="observacion_cotizacion"
+                                id="observacion_cotizacion" [(ngModel)]="modeloCotizacion.observacion_cotizacion">
+                            <span class="material-icons">preview</span>
+                        </div>
+                        <p>
+                            <small
+                                *ngIf="form.get('observacion_cotizacion')?.hasError('required') && form.get('observacion_cotizacion')?.touched">
+                                El campo es obligatorio
+                            </small>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <button [disabled]="!form.valid" class="btn button-enviar" type="submit">Aceptar</button>
+                    <button class="btn button-cancelar" (click)="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+
+</div>

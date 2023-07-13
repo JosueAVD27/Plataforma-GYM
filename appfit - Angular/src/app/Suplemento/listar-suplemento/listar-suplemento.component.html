@@ -1,0 +1,65 @@
+<div>
+    <div class="title_vista">
+        <h3>SUPLEMENTOS</h3>
+    </div>
+    <div class="contenedor_interno">
+
+        <app-add-suplemento (suplementoAgregado)="actualizarTabla()"></app-add-suplemento>
+
+        <div class="sub_title">
+            <h2>Lista de suplementos</h2>
+        </div>
+
+        <div class="contenedor-busqueda">
+            <div class="input-icono">
+                <input type="text" [(ngModel)]="filtro" (input)="filtrarSuplementos()"
+                placeholder="Buscar por suplemento, marca, categoria, presentación, precio o estado">
+                <span class="material-icons">person_search</span>
+            </div>
+        </div>
+
+        <table class="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>SUPLEMENTO</th>
+                    <th>MARCA</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>CATEGORIA</th>
+                    <th>PRESENTACIÓN</th>
+                    <th>INSTRUCCIONES</th>
+                    <th>PRECIO/USD</th>
+                    <th>ESTADO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let suplemento of suplementosPaginados; let i = index">
+                    <td>{{ inicioConteo + i + 1 }}</td>
+                    <td>{{ suplemento.nombre_suplemento }}</td>
+                    <td>{{ suplemento.marca_suplemento }}</td>
+                    <td>{{ suplemento.descripcion_suplemento }}</td>
+                    <td>{{ suplemento.categoria_suplemento }}</td>
+                    <td>{{ suplemento.presentacion_suplemento }}</td>
+                    <td>{{ suplemento.instrucciones_suplemento }}</td>
+                    <td>{{ suplemento.precio_suplemento }}</td>
+                    <td>{{ suplemento.disponibilidad_suplemento }}</td>
+                    <td class="botones">
+                        <button class="btn button-editar" (click)="editar(suplemento)">Editar</button>
+                        <button class="btn button-eliminar" (click)="delete(suplemento)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="paginacion">
+            <button [disabled]="paginaActual === 1" (click)="paginaAnterior()">Anterior</button>
+            <button
+                [disabled]="suplementosFiltrados.length <= registrosPorPagina || (paginaActual * registrosPorPagina) >= suplementosFiltrados.length"
+                (click)="paginaSiguiente()">Siguiente</button>
+        </div>
+
+        <p>Total de servicios: {{ suplementosFiltrados.length }}</p>
+
+    </div>
+</div>

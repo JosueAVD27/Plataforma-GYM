@@ -1,0 +1,102 @@
+<div>
+    <div class="sub_title">
+        <h2>Agregar nuevo</h2>
+    </div>
+    <form class="formulario" (ngSubmit)="save($event)" [formGroup]="form">
+        <div>
+            <div class="campo-formulario">
+                <label for="nombre_servicio">Servicio</label>
+                <div class="input-icono">
+                    <input type="text" formControlName="nombre_servicio" name="nombre_servicio" id="nombre_servicio"
+                        [(ngModel)]="modeloServicio.nombre_servicio">
+                    <span class="material-icons">room_service</span>
+                </div>
+                <p>
+                    <small
+                        *ngIf="form.get('nombre_servicio')?.hasError('required') && form.get('nombre_servicio')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+
+            <div class="campo-formulario">
+                <label for="descripcion_servicio">Descripción</label>
+                <div class="input-icono">
+                    <input type="text" formControlName="descripcion_servicio" name="descripcion_servicio"
+                        id="descripcion_servicio" [(ngModel)]="modeloServicio.descripcion_servicio">
+                    <span class="material-icons">description</span>
+                </div>
+                <p>
+                    <small
+                        *ngIf="form.get('descripcion_servicio')?.hasError('required') && form.get('descripcion_servicio')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <div class="campo-formulario">
+                <label for="precio_servicio">Precio/USD</label>
+                <div class="input-icono">
+                    <input type="number" formControlName="precio_servicio" name="precio_servicio" id="precio_servicio"
+                        [(ngModel)]="modeloServicio.precio_servicio">
+                    <span class="material-icons">price_change</span>
+                </div>
+                <p>
+                    <small
+                        *ngIf="form.get('precio_servicio')?.hasError('required') && form.get('precio_servicio')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+            <div class="campo-formulario">
+                <label for="duracion_servicio">Duración</label>
+                <div class="input-icono">
+                    <input type="text" formControlName="duracion_servicio" name="duracion_servicio"
+                        id="duracion_servicio" [(ngModel)]="modeloServicio.duracion_servicio">
+                    <span class="material-icons">update</span>
+                </div>
+                <p>
+                    <small
+                        *ngIf="form.get('duracion_servicio')?.hasError('required') && form.get('duracion_servicio')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="campo-formulario">
+                <label for="promocion_servicio">Promoción</label>
+                <div class="input-icono">
+                    <input type="text" formControlName="promocion_servicio" name="promocion_servicio"
+                        id="promocion_servicio" [(ngModel)]="modeloServicio.promocion_servicio">
+                    <span class="material-icons">loyalty</span>
+                </div>
+                <p>
+                    <small
+                        *ngIf="form.get('promocion_servicio')?.hasError('required') && form.get('promocion_servicio')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+            <div class="campo-formulario">
+                <label for="observaciones_servicio">Observaciones</label>
+                <div class="input-icono">
+                    <input type="text" formControlName="observaciones_servicio" name="observaciones_servicio"
+                        id="observaciones_servicio" [(ngModel)]="modeloServicio.observaciones_servicio">
+                    <span class="material-icons">contact_support</span>
+                </div>
+                <p>
+                    <small
+                        *ngIf="form.get('observaciones_servicio')?.hasError('required') && form.get('observaciones_servicio')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+        </div>
+        <div>
+            <button [disabled]="!form.valid" class="btn button-agregar" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>

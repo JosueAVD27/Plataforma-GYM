@@ -1,0 +1,88 @@
+.botones {
+    margin: 0 -3px !important;
+}
+
+.botones button {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.contenedor-busqueda {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contenedor-busqueda input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contenedor-busqueda input[type="text"]:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.tabla-clientes {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tabla-clientes th,
+.tabla-clientes td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.tabla-clientes th {
+    background-color: #f2f2f2;
+}
+
+.tabla-clientes td.botones {
+    white-space: nowrap;
+}
+
+.paginacion {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.paginacion button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: none;
+    color: #ffffff;
+    background-color: rgb(67, 143, 67);
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.paginacion button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input-icono {
+    display: flex;
+    align-items: center;
+}
+
+.input-icono input {
+    padding-right: 36px;
+    /* Ajusta el valor según sea necesario para dejar espacio para el ícono */
+}
+
+.input-icono .material-icons {
+    position: absolute;
+    right: 8px;
+    /* Ajusta el valor según sea necesario para alinear el ícono */
+    color: #848484;
+    /* Ajusta el color del ícono según tus necesidades */
+    pointer-events: none;
+    /* Evita que el ícono interfiera con la interacción del campo de entrada */
+}

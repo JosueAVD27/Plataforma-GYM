@@ -1,0 +1,164 @@
+.container>h3 {
+    text-align: center;
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+}
+
+/*Estilos de targeta*/
+.contenedor_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 275px;
+}
+
+.hidden{
+    display: none;
+}
+
+.targeta {
+    display: grid;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    gap: 15px;
+}
+
+.targeta h1{
+    font-size: 20px;
+    text-align: center;
+}
+
+.targeta div{
+    display: flex;
+    gap: 5px;
+}
+
+.targeta div label,
+.extra_campo label {
+    font-weight: bold;
+    color: #494949;
+}
+
+.targeta div p,
+.extra_campo p {
+    margin: 0;
+    text-align: center;
+}
+
+.extra_campo{
+    display: grid !important;
+    width: 100%;
+}
+
+.hr{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+/**/
+
+
+.formulario>div {
+    display: flex;
+    gap: 30px;
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.campo-formulario label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="date"],
+.campo-formulario input[type="number"],
+.campo-formulario select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.campo-formulario select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.campo-formulario button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.title_vista {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.contenedor_interno {
+    justify-content: center;
+    width: 800px;
+}
+
+/*Estilos para el boton desactiavado*/
+button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/*Estilos para las validaciones*/
+/*p*/
+p {
+    display: grid;
+}
+
+/*Small*/
+small {
+    font-size: 10px;
+    color: red;
+}
+
+.campo-formulario {
+    position: relative;
+}
+
+.input-icono {
+    display: flex;
+    align-items: center;
+}
+
+.input-icono input {
+    padding-right: 36px;
+    /* Ajusta el valor según sea necesario para dejar espacio para el ícono */
+}
+
+.input-icono .material-icons {
+    position: absolute;
+    right: 8px;
+    /* Ajusta el valor según sea necesario para alinear el ícono */
+    color: #848484;
+    /* Ajusta el color del ícono según tus necesidades */
+    pointer-events: none;
+    /* Evita que el ícono interfiera con la interacción del campo de entrada */
+}

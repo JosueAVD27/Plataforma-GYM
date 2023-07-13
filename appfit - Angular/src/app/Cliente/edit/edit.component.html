@@ -1,0 +1,110 @@
+<div>
+    <div class="title_vista">
+        <h3>ACTUALIZAR CLIENTE</h3>
+    </div>
+    <div class="contenedor_interno">
+        <form class="formulario" (ngSubmit)="save($event)" [formGroup]="form">
+            <div>
+                <div class="campo-formulario">
+                    <label for="nombre">Nombres</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="nombre" name="nombre" id="nombre"
+                            [(ngModel)]="modeloCliente.nombre">
+                        <span class="material-icons">account_box</span>
+                    </div>
+                    <p>
+                        <small *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">
+                            El campo es obligatorio
+                        </small>
+                        <small *ngIf="form.get('nombre')?.hasError('pattern') && form.get('nombre')?.touched">
+                            Ingresa tus 2 nombres
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="apellido">Apellidos</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="apellido" name="apellido" id="apellido"
+                            [(ngModel)]="modeloCliente.apellido">
+                        <span class="material-icons">account_box</span>
+                    </div>
+                    <p>
+                        <small *ngIf="form.get('apellido')?.hasError('required') && form.get('apellido')?.touched">
+                            El campo es obligatorio
+                        </small>
+                        <small *ngIf="form.get('apellido')?.hasError('pattern') && form.get('apellido')?.touched">
+                            Ingresa tus 2 apellidos
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="campo-formulario">
+                    <label for="cedula">Cédula</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="cedula" name="cedula" id="cedula"
+                            [(ngModel)]="modeloCliente.cedula">
+                        <span class="material-icons">branding_watermark</span>
+                    </div>
+                    <p>
+                        <small *ngIf="form.get('cedula')?.hasError('required') && form.get('cedula')?.touched">
+                            El campo es obligatorio
+                        </small>
+                        <small *ngIf="form.get('cedula')?.hasError('cedulaInvalida') && form.get('cedula')?.touched">
+                            {{ form.get('cedula')?.getError('mensaje') }}
+                        </small>
+                    </p>
+                </div>
+                <div class="campo-formulario">
+                    <label for="telefono">Teléfono</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="telefono" name="telefono" id="telefono"
+                            [(ngModel)]="modeloCliente.telefono">
+                        <span class="material-icons">mobile_friendly</span>
+                    </div>
+                    <p>
+                        <small *ngIf="form.get('telefono')?.hasError('required') && form.get('telefono')?.touched">
+                            El campo es obligatorio
+                        </small>
+                        <small
+                            *ngIf="form.get('telefono')?.hasError('telefonoInvalido') && form.get('telefono')?.touched">
+                            {{ form.get('telefono')?.getError('mensaje') }}
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="campo-formulario">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                    <input type="date" formControlName="fecha_nacimiento" name="fecha_nacimiento" id="fecha_nacimiento"
+                        [(ngModel)]="modeloCliente.fecha_nacimiento">
+                    <p>
+                        <small
+                            *ngIf="form.get('fecha_nacimiento')?.hasError('required') && form.get('fecha_nacimiento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+                <div class="campo-formulario">
+                    <label for="direccion">Dirección</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="direccion" name="direccion" id="direccion"
+                            [(ngModel)]="modeloCliente.direccion">
+                        <span class="material-icons">add_location_alt</span>
+                    </div>
+                    <p>
+                        <small *ngIf="form.get('direccion')?.hasError('required') && form.get('direccion')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <button [disabled]="!form.valid" class="btn button-actualizar">Actualizar</button>
+                <button class="btn button-cancelar" (click)="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

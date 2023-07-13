@@ -1,0 +1,151 @@
+<div>
+    <div class="title_vista">
+        <h3>ACTUALIZAR SUPLEMENTO</h3>
+    </div>
+    <div class="contenedor_interno">
+        <form class="formulario" (ngSubmit)="save($event)" [formGroup]="form">
+            <div>
+                <div class="campo-formulario">
+                    <label for="nombre_suplemento">Suplemento</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="nombre_suplemento" name="nombre_suplemento"
+                            id="nombre_suplemento" [(ngModel)]="modeloSuplemento.nombre_suplemento">
+                        <span class="material-icons">offline_bolt</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('nombre_suplemento')?.hasError('required') && form.get('nombre_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="marca_suplemento">Marca</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="marca_suplemento" name="marca_suplemento"
+                            id="marca_suplemento" [(ngModel)]="modeloSuplemento.marca_suplemento">
+                        <span class="material-icons">verified</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('marca_suplemento')?.hasError('required') && form.get('marca_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="precio_suplemento">Precio/USD</label>
+                    <div class="input-icono">
+                        <input type="number" formControlName="precio_suplemento" name="precio_suplemento"
+                            id="precio_suplemento" [(ngModel)]="modeloSuplemento.precio_suplemento">
+                        <span class="material-icons">price_change</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('precio_suplemento')?.hasError('required') && form.get('precio_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="campo-formulario">
+                    <label for="presentacion_suplemento">Presentación (Selección)</label>
+                    <div class="input-icono">
+                        <select formControlName="presentacion_suplemento"
+                            [(ngModel)]="modeloSuplemento.presentacion_suplemento">
+                            <option value="Polvo">Polvo</option>
+                            <option value="Cápsulas">Cápsulas</option>
+                            <option value="Tabletas">Tabletas</option>
+                        </select>
+                        <span class="material-icons">redeem</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('presentacion_suplemento')?.hasError('required') && form.get('presentacion_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="categoria_suplemento">Categoria (Selección)</label>
+                    <div class="input-icono">
+                        <select formControlName="categoria_suplemento"
+                            [(ngModel)]="modeloSuplemento.categoria_suplemento">
+                            <option value="Proteínas">Proteínas</option>
+                            <option value="Vitaminas">Vitaminas</option>
+                            <option value="Pre-entreno">Pre-entreno</option>
+                        </select>
+                        <span class="material-icons">category</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('categoria_suplemento')?.hasError('required') && form.get('categoria_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="disponibilidad_suplemento">Estado (Selección)</label>
+                    <div class="input-icono">
+                        <select formControlName="disponibilidad_suplemento"
+                            [(ngModel)]="modeloSuplemento.disponibilidad_suplemento">
+                            <option value="Disponible">Disponible</option>
+                            <option value="Agotado">Agotado</option>
+                        </select>
+                        <span class="material-icons">tune</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('disponibilidad_suplemento')?.hasError('required') && form.get('disponibilidad_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="campo-formulario">
+                    <label for="descripcion_suplemento">Descripción</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="descripcion_suplemento" name="descripcion_suplemento"
+                            id="descripcion_suplemento" [(ngModel)]="modeloSuplemento.descripcion_suplemento">
+                        <span class="material-icons">description</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('descripcion_suplemento')?.hasError('required') && form.get('descripcion_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="instrucciones_suplemento">Instrucciones</label>
+                    <div class="input-icono">
+                        <input type="text" formControlName="instrucciones_suplemento" name="instrucciones_suplemento"
+                            id="instrucciones_suplemento" [(ngModel)]="modeloSuplemento.instrucciones_suplemento">
+                        <span class="material-icons">format_list_numbered_rtl</span>
+                    </div>
+                    <p>
+                        <small
+                            *ngIf="form.get('instrucciones_suplemento')?.hasError('required') && form.get('instrucciones_suplemento')?.touched">
+                            El campo es obligatorio
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+
+            <div>
+                <button [disabled]="!form.valid" class="btn button-actualizar">Actualizar</button>
+                <button class="btn button-cancelar" (click)="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

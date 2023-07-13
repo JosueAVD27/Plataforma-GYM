@@ -1,0 +1,66 @@
+<div>
+    <div class="title_vista">
+        <h3>CLIENTES</h3>
+    </div>
+    <div class="contenedor_interno">
+
+        <app-add (clienteAgregado)="actualizarTabla()"></app-add>
+
+        <div class="sub_title">
+            <h2>Lista de clientes</h2>
+        </div>
+
+        <div class="contenedor-busqueda">
+            <div class="input-icono">
+                <input type="text" [(ngModel)]="filtro" (input)="filtrarClientes()"
+                placeholder="Buscar por nombre, apellido, cédula, teléfono o dirección">
+                <span class="material-icons">person_search</span>
+            </div>
+        </div>
+
+        <table class="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>NOMBRES</th>
+                    <th>APELLIDOS</th>
+                    <th>CÉDULA</th>
+                    <th>TELÉFONO</th>
+                    <th>FECHA DE NACIMIENTO</th>
+                    <th>DIRECCIÓN</th>
+                    <th>Codigo Postal</th>
+                    <th>Edad</th> <!-- Nueva columna para mostrar la edad -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientesPaginados; let i = index">
+                    <td>{{ inicioConteo + i + 1 }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.cedula }}</td>
+                    <td>{{ cliente.telefono }}</td>
+                    <td>{{ cliente.fecha_nacimiento }}</td>
+                    <td>{{ cliente.direccion }}</td>
+                    <td>{{ cliente.codigo_postal }}</td>
+                    <td>{{ calcularEdad(cliente.fecha_nacimiento.toString()) }}</td> <!-- Mostrar la edad llamando a la función calcularEdad -->
+                    <td class="botones">
+                        <button class="btn button-enviar btn_money" (click)="cotizacion(cliente)">$</button>
+                        <button class="btn button-editar" (click)="editar(cliente)">Editar</button>
+                        <button class="btn button-eliminar" (click)="delete(cliente)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="paginacion">
+            <button [disabled]="paginaActual === 1" (click)="paginaAnterior()">Anterior</button>
+            <button
+                [disabled]="clientesFiltrados.length <= registrosPorPagina || (paginaActual * registrosPorPagina) >= clientesFiltrados.length"
+                (click)="paginaSiguiente()">Siguiente</button>
+        </div>
+
+        <p>Total de clientes: {{ clientesFiltrados.length }}</p>
+
+    </div>
+</div>

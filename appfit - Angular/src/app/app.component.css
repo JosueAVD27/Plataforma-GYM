@@ -1,0 +1,78 @@
+.contenedor_interno {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+
+.title_general {
+    color: aliceblue;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.contenedor_botones {
+    display: grid;
+    gap: 10px;
+}
+
+.contenedor_botones>button {
+    color: aliceblue;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.contenedor_botones>button:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.integrantes {
+    display: grid;
+    background-color: #f1f1f1;
+    padding: 20px;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+
+}
+
+.integrantes h2 {
+    color: #3d3d3d;
+    font-size: 18px;
+    margin: 0;
+    font-size: 30px;
+}
+
+.integrantes p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 20px;
+}
+
+.integrantes p:first-child {
+    margin-top: 10px;
+}
+
+.integrantes p:last-child {
+    margin-bottom: 10px;
+
+}
+
+.integrantes_text {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar-item-inner-icon-wrapper> span{
+    font-size: 25px
+}

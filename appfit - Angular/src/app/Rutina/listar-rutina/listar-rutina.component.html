@@ -1,0 +1,59 @@
+<div>
+    <div class="title_vista">
+        <h3>RUTINAS</h3>
+    </div>
+    <div class="contenedor_interno">
+
+        <app-add-rutina (rutinaAgregado)="actualizarTabla()"></app-add-rutina>
+
+        <div class="sub_title">
+            <h2>Lista de rutinas</h2>
+        </div>
+
+        <div class="contenedor-busqueda">
+            <div class="input-icono">
+                <input type="text" [(ngModel)]="filtro" (input)="filtrarRutinas()"
+                placeholder="Buscar rutina">
+                <span class="material-icons">person_search</span>
+            </div>
+        </div>
+
+        <table class="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>RUTINA</th>
+                    <th>DURACIÓN</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>DÍAS</th>
+                    <th>MATERIALES</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rutina of rutinasPaginados; let i = index">
+                    <td>{{ inicioConteo + i + 1 }}</td>
+                    <td>{{ rutina.nombre_rutina }}</td>
+                    <td>{{ rutina.duracion_rutina }}</td>
+                    <td>{{ rutina.descripcion_rutina }}</td>
+                    <td>{{ rutina.dias_rutina }}</td>
+                    <td>{{ rutina.material_rutina }}</td>
+                    <td class="botones">
+                        <button class="btn button-editar" (click)="editar(rutina)">Editar</button>
+                        <button class="btn button-eliminar" (click)="delete(rutina)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="paginacion">
+            <button [disabled]="paginaActual === 1" (click)="paginaAnterior()">Anterior</button>
+            <button
+                [disabled]="rutinasFiltrados.length <= registrosPorPagina || (paginaActual * registrosPorPagina) >= rutinasFiltrados.length"
+                (click)="paginaSiguiente()">Siguiente</button>
+        </div>
+
+        <p>Total de servicios: {{ rutinasFiltrados.length }}</p>
+
+    </div>
+</div>
