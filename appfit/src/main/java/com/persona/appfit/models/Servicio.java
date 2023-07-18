@@ -16,6 +16,9 @@ public class Servicio {
     private String promocion_servicio;
     private String observaciones_servicio;
 
+    @OneToMany(mappedBy = "servicio")
+    private List<Cotizacion> cotizaciones;
+
     public Servicio(){
     }
 
