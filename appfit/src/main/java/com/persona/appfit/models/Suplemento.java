@@ -18,6 +18,14 @@ public class Suplemento {
     private Double precio_suplemento;
     private String disponibilidad_suplemento;
 
+    @ManyToMany
+    @JoinTable(
+            name = "cotizacion_suplemento",
+            joinColumns = @JoinColumn(name = "suplemento_id"),
+            inverseJoinColumns = @JoinColumn(name = "cotizacion_id")
+    )
+    private List<Cotizacion> cotizaciones;
+    
     public Suplemento(){}
 
     public int getId() {
