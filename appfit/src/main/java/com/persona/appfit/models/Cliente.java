@@ -21,6 +21,12 @@ public class Cliente {
     private String direccion;
     private String codigo_postal;
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Rutina> rutinas;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Cotizacion> cotizaciones;
+
     public Cliente() {
     }
 
