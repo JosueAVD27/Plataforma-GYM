@@ -14,6 +14,10 @@ public class Rutina {
     private String duracion_rutina;
     private String dias_rutina;
     private String material_rutina;
+    
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     public Rutina(){}
 
