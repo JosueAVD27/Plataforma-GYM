@@ -17,6 +17,14 @@ public class Cotizacion {
     private String estado_cotizacion;
     private String observacion_cotizacion;
 
+    @ManyToOne
+    @JoinColumn(name = "servicio_id")
+    private Servicio servicio;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
     public Cotizacion(){}
 
     public int getId() {
